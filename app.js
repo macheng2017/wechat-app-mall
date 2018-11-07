@@ -1,63 +1,78 @@
 //app.js
 App({
-  onLaunch: function () {
-    var that = this;    
+  onLaunch: function() {
+    var that = this
     //  获取商城名称
     wx.request({
-      url: 'https://api.it120.cc/'+ that.globalData.subDomain +'/config/get-value',
+      url:
+        'https://api.it120.cc/' +
+        that.globalData.subDomain +
+        '/config/get-value',
       data: {
         key: 'mallName'
       },
       success: function(res) {
         if (res.data.code == 0) {
-          wx.setStorageSync('mallName', res.data.data.value);
+          wx.setStorageSync('mallName', res.data.data.value)
         }
       }
     })
     wx.request({
-      url: 'https://api.it120.cc/' + that.globalData.subDomain + '/score/send/rule',
+      url:
+        'https://api.it120.cc/' +
+        that.globalData.subDomain +
+        '/score/send/rule',
       data: {
         code: 'goodReputation'
       },
-      success: function (res) {
+      success: function(res) {
         if (res.data.code == 0) {
-          that.globalData.order_reputation_score = res.data.data[0].score;
+          that.globalData.order_reputation_score = res.data.data[0].score
         }
       }
     })
     wx.request({
-      url: 'https://api.it120.cc/' + that.globalData.subDomain + '/config/get-value',
+      url:
+        'https://api.it120.cc/' +
+        that.globalData.subDomain +
+        '/config/get-value',
       data: {
         key: 'recharge_amount_min'
       },
-      success: function (res) {
+      success: function(res) {
         if (res.data.code == 0) {
-          that.globalData.recharge_amount_min = res.data.data.value;
+          that.globalData.recharge_amount_min = res.data.data.value
         }
       }
     })
     // 获取砍价设置
     wx.request({
-      url: 'https://api.it120.cc/' + that.globalData.subDomain + '/shop/goods/kanjia/list',
+      url:
+        'https://api.it120.cc/' +
+        that.globalData.subDomain +
+        '/shop/goods/kanjia/list',
       data: {},
-      success: function (res) {
+      success: function(res) {
         if (res.data.code == 0) {
-          that.globalData.kanjiaList = res.data.data.result;
+          that.globalData.kanjiaList = res.data.data.result
         }
       }
     })
     // 判断是否登录
-    let token = wx.getStorageSync('token');
+    let token = wx.getStorageSync('token')
     if (!token) {
       that.goLoginPageTimeOut()
       return
     }
     wx.request({
-      url: 'https://api.it120.cc/' + that.globalData.subDomain + '/user/check-token',
+      url:
+        'https://api.it120.cc/' +
+        that.globalData.subDomain +
+        '/user/check-token',
       data: {
         token: token
       },
-      success: function (res) {
+      success: function(res) {
         if (res.data.code != 0) {
           wx.removeStorageSync('token')
           that.goLoginPageTimeOut()
@@ -65,36 +80,54 @@ App({
       }
     })
   },
-  sendTempleMsg: function (orderId, trigger, template_id, form_id, page, postJsonString){
-    var that = this;
+  sendTempleMsg: function(
+    orderId,
+    trigger,
+    template_id,
+    form_id,
+    page,
+    postJsonString
+  ) {
+    var that = this
     wx.request({
-      url: 'https://api.it120.cc/' + that.globalData.subDomain + '/template-msg/put',
-      method:'POST',
+      url:
+        'https://api.it120.cc/' +
+        that.globalData.subDomain +
+        '/template-msg/put',
+      method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
       data: {
         token: wx.getStorageSync('token'),
-        type:0,
-        module:'order',
+        type: 0,
+        module: 'order',
         business_id: orderId,
         trigger: trigger,
         template_id: template_id,
         form_id: form_id,
-        url:page,
+        url: page,
         postJsonString: postJsonString
       },
-      success: (res) => {
+      success: res => {
         //console.log('*********************');
         //console.log(res.data);
         //console.log('*********************');
       }
     })
   },
-  sendTempleMsgImmediately: function (template_id, form_id, page, postJsonString) {
-    var that = this;
+  sendTempleMsgImmediately: function(
+    template_id,
+    form_id,
+    page,
+    postJsonString
+  ) {
+    var that = this
     wx.request({
-      url: 'https://api.it120.cc/' + that.globalData.subDomain + '/template-msg/put',
+      url:
+        'https://api.it120.cc/' +
+        that.globalData.subDomain +
+        '/template-msg/put',
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded'
@@ -108,22 +141,22 @@ App({
         url: page,
         postJsonString: postJsonString
       },
-      success: (res) => {
-        console.log(res.data);
+      success: res => {
+        console.log(res.data)
       }
     })
-  },  
-  goLoginPageTimeOut: function () {
-    setTimeout(function(){
-      wx.navigateTo({
-        url: "/pages/authorize/index"
-      })
-    }, 1000)    
   },
-  globalData:{
-    userInfo:null,
-    subDomain: "tz", // 如果你的域名是： https://api.it120.cc/abcd 那么这里只要填写 abcd
-    version: "4.0.0",
+  goLoginPageTimeOut: function() {
+    setTimeout(function() {
+      wx.navigateTo({
+        url: '/pages/authorize/index'
+      })
+    }, 1000)
+  },
+  globalData: {
+    userInfo: null,
+    subDomain: 'spzwl', // 如果你的域名是： https://api.it120.cc/abcd 那么这里只要填写 abcd
+    version: '4.0.0',
     shareProfile: '百款精品商品，总有一款适合您' // 首页转发的时候话术
   }
   /*
