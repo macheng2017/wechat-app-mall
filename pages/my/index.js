@@ -44,7 +44,7 @@ Page({
     var that = this
     wx.request({
       url:
-        'https://api.it120.cc/' +
+        'https://api.spzwl.com/' +
         app.globalData.subDomain +
         '/user/wxapp/bindMobile',
       data: {
@@ -73,7 +73,7 @@ Page({
   getUserApiInfo: function() {
     var that = this
     wx.request({
-      url: 'https://api.it120.cc/' + app.globalData.subDomain + '/user/detail',
+      url: 'https://api.spzwl.com/' + app.globalData.subDomain + '/user/detail',
       data: {
         token: wx.getStorageSync('token')
       },
@@ -90,7 +90,7 @@ Page({
   getUserAmount: function() {
     var that = this
     wx.request({
-      url: 'https://api.it120.cc/' + app.globalData.subDomain + '/user/amount',
+      url: 'https://api.spzwl.com/' + app.globalData.subDomain + '/user/amount',
       data: {
         token: wx.getStorageSync('token')
       },
@@ -109,7 +109,7 @@ Page({
     var that = this
     wx.request({
       url:
-        'https://api.it120.cc/' +
+        'https://api.spzwl.com/' +
         app.globalData.subDomain +
         '/score/today-signed',
       data: {
@@ -127,7 +127,7 @@ Page({
   scoresign: function() {
     var that = this
     wx.request({
-      url: 'https://api.it120.cc/' + app.globalData.subDomain + '/score/sign',
+      url: 'https://api.spzwl.com/' + app.globalData.subDomain + '/score/sign',
       data: {
         token: wx.getStorageSync('token')
       },

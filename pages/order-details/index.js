@@ -15,7 +15,7 @@ Page({
     onShow : function () {
       var that = this;
       wx.request({
-        url: 'https://api.it120.cc/' + app.globalData.subDomain + '/order/detail',
+        url: 'https://api.spzwl.com/' + app.globalData.subDomain + '/order/detail',
         data: {
           token: wx.getStorageSync('token'),
           id: that.data.orderId
@@ -63,7 +63,7 @@ Page({
             if (res.confirm) {
               wx.showLoading();
               wx.request({
-                url: 'https://api.it120.cc/' + app.globalData.subDomain + '/order/delivery',
+                url: 'https://api.spzwl.com/' + app.globalData.subDomain + '/order/delivery',
                 data: {
                   token: wx.getStorageSync('token'),
                   orderId: orderId
@@ -112,7 +112,7 @@ Page({
       postJsonString.reputations = reputations;
       wx.showLoading();
       wx.request({
-        url: 'https://api.it120.cc/' + app.globalData.subDomain + '/order/reputation',
+        url: 'https://api.spzwl.com/' + app.globalData.subDomain + '/order/reputation',
         data: {
           postJsonString: postJsonString
         },

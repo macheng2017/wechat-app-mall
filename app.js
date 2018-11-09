@@ -5,7 +5,7 @@ App({
     //  获取商城名称
     wx.request({
       url:
-        'https://api.it120.cc/' +
+        'https://api.spzwl.com/' +
         that.globalData.subDomain +
         '/config/get-value',
       data: {
@@ -19,7 +19,7 @@ App({
     })
     wx.request({
       url:
-        'https://api.it120.cc/' +
+        'https://api.spzwl.com/' +
         that.globalData.subDomain +
         '/score/send/rule',
       data: {
@@ -33,7 +33,7 @@ App({
     })
     wx.request({
       url:
-        'https://api.it120.cc/' +
+        'https://api.spzwl.com/' +
         that.globalData.subDomain +
         '/config/get-value',
       data: {
@@ -48,7 +48,7 @@ App({
     // 获取砍价设置
     wx.request({
       url:
-        'https://api.it120.cc/' +
+        'https://api.spzwl.com/' +
         that.globalData.subDomain +
         '/shop/goods/kanjia/list',
       data: {},
@@ -66,7 +66,7 @@ App({
     }
     wx.request({
       url:
-        'https://api.it120.cc/' +
+        'https://api.spzwl.com/' +
         that.globalData.subDomain +
         '/user/check-token',
       data: {
@@ -91,7 +91,7 @@ App({
     var that = this
     wx.request({
       url:
-        'https://api.it120.cc/' +
+        'https://api.spzwl.com/' +
         that.globalData.subDomain +
         '/template-msg/put',
       method: 'POST',
@@ -125,7 +125,7 @@ App({
     var that = this
     wx.request({
       url:
-        'https://api.it120.cc/' +
+        'https://api.spzwl.com/' +
         that.globalData.subDomain +
         '/template-msg/put',
       method: 'POST',
@@ -155,7 +155,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    subDomain: 'spzwl', // 如果你的域名是： https://api.it120.cc/abcd 那么这里只要填写 abcd
+    subDomain: 'spzwl', // 如果你的域名是： https://api.spzwl.com/abcd 那么这里只要填写 abcd
     version: '4.0.0',
     shareProfile: '百款精品商品，总有一款适合您' // 首页转发的时候话术
   }

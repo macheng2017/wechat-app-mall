@@ -54,7 +54,7 @@ Page({
       } 
     })
     wx.request({
-      url: 'https://api.it120.cc/'+ app.globalData.subDomain +'/shop/goods/detail',
+      url: 'https://api.spzwl.com/'+ app.globalData.subDomain +'/shop/goods/detail',
       data: {
         id: e.id
       },
@@ -192,7 +192,7 @@ Page({
     // 计算当前价格
     if (canSubmit) {
       wx.request({
-        url: 'https://api.it120.cc/'+ app.globalData.subDomain +'/shop/goods/price',
+        url: 'https://api.spzwl.com/'+ app.globalData.subDomain +'/shop/goods/price',
         data: {
           goodsId: that.data.goodsDetail.basicInfo.id,
           propertyChildIds:propertyChildIds
@@ -303,7 +303,7 @@ Page({
     this.closePopupTap();
     if (shoptype == 'toPingtuan') {
       wx.request({
-        url: 'https://api.it120.cc/' + app.globalData.subDomain + '/shop/goods/pingtuan/open',
+        url: 'https://api.spzwl.com/' + app.globalData.subDomain + '/shop/goods/pingtuan/open',
         data: {
           token: wx.getStorageSync('token'),
           goodsId: that.data.goodsDetail.basicInfo.id
@@ -441,7 +441,7 @@ Page({
   reputation: function (goodsId) {
     var that = this;
     wx.request({
-      url: 'https://api.it120.cc/' + app.globalData.subDomain + '/shop/goods/reputation',
+      url: 'https://api.spzwl.com/' + app.globalData.subDomain + '/shop/goods/reputation',
       data: {
         goodsId: goodsId
       },
@@ -458,7 +458,7 @@ Page({
   pingtuanList: function (goodsId) {
     var that = this;
     wx.request({
-      url: 'https://api.it120.cc/' + app.globalData.subDomain + '/shop/goods/pingtuan/list',
+      url: 'https://api.spzwl.com/' + app.globalData.subDomain + '/shop/goods/pingtuan/list',
       data: {
         goodsId: goodsId
       },
@@ -474,7 +474,7 @@ Page({
   getVideoSrc: function (videoId) {
     var that = this;
     wx.request({
-      url: 'https://api.it120.cc/' + app.globalData.subDomain + '/media/video/detail',
+      url: 'https://api.spzwl.com/' + app.globalData.subDomain + '/media/video/detail',
       data: {
         videoId: videoId
       },
@@ -514,7 +514,7 @@ Page({
       return;
     }
     wx.request({
-      url: 'https://api.it120.cc/' + app.globalData.subDomain + '/shop/goods/kanjia/join',
+      url: 'https://api.spzwl.com/' + app.globalData.subDomain + '/shop/goods/kanjia/join',
       data: {
         kjid: that.data.curGoodsKanjia.id,
         token: wx.getStorageSync('token')

@@ -80,7 +80,7 @@ Page({
       return
     }
     wx.request({
-      url: 'https://api.it120.cc/' + app.globalData.subDomain + '/score/exchange',
+      url: 'https://api.spzwl.com/' + app.globalData.subDomain + '/score/exchange',
       data: {
         token: wx.getStorageSync('token'),
         number: amount
