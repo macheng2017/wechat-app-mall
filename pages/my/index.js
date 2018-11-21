@@ -26,10 +26,21 @@ Page({
     this.checkScoreSign()
   },
   aboutUs: function() {
-    wx.showModal({
-      title: '关于我们',
-      content: '祝大家使用愉快！',
-      showCancel: false
+    // wx.showModal({
+    //   title: '关于我们',
+    //   content: '祝大家使用愉快！',
+    //   showCancel: false
+    // })
+    wx.navigateToMiniProgram({
+      appId: 'wx1cf3c33d21786f00',
+      path: 'page/start/start',
+      extraData: {
+        foo: 'bar'
+      },
+      envVersion: 'develop',
+      success(res) {
+        // 打开成功
+      }
     })
   },
   getPhoneNumber: function(e) {
